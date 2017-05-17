@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+label, p{
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+input{
+    width: 40em;
+    display: block;
+}

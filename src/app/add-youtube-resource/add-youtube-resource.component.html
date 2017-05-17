@@ -1,0 +1,51 @@
+<button (click)="sourceType = 'youtube'">Youtube</button>
+<button (click)="sourceType = 'direct'">Direct</button>
+<button (click)="sourceType = 'streaming'">Streaming</button>
+<button (click)="sourceType = 'youtubex'">youtubeX</button>
+
+<h2>Add youtube resource</h2>
+<form [formGroup]='form'>
+  <input type="number" formControlName="trackid" placeholder="track id (internal)">
+  <input type="text" formControlName="source_type" placeholder="source_type">
+  <input type="text" formControlName="upload_date" placeholder="upload date"> <small>{{date | date: 'medium' }}</small>
+  <br>
+  <input type="text" formControlName="title" required placeholder="title">
+  <br>
+  <label for="url">Enter video ID for youtube, otherwise normalized url </label>
+  <input type="text" formControlName="url" required placeholder="url" #url>
+  <button (click)="loadYTData(url.value)">Load youtube data</button>
+  <br>
+  <input type="text" formControlName="thumbnail" required placeholder="thumbnail url">
+  <br>
+  <input type="text" formControlName="artiste" required placeholder="artiste">
+  <input type="text" formControlName="year" required placeholder="year">
+  <br>
+  <label>Specify file extension if the source is not youtube</label>
+  <input type="text" formControlName="formatcode_audio" required placeholder="140|mp3">
+  <label for="formatcode_video">HD: 22, MED: 18, LOW:36</label>
+  <input type="text" formControlName="formatcode_video" required placeholder="formatcode_video">
+  <br>
+  <input type="number" formControlName="downloads" placeholder="downloads">
+  <input type="number" formControlName="likes" placeholder="likes">
+  <input type="text" formControlName="tags" placeholder="tags">
+  <textarea formControlName="note" placeholder="note (HTML)">
+  </textarea>
+  <br>
+  <input type="text" formControlName="auth_comment" ngModel="Download ⬇️, listen  🎧 and enjoy 🎉. Like  👍 and comment 📝 when you come back. "
+    placeholder="will be saved to comments">
+  <br>
+
+  <button (click)="submitResource()" [disabled]="!form.valid">Add</button>
+
+</form>
+
+<div *ngIf="false">
+  <input type="number" [(ngModel)]="limitTo">
+  <button (click)="getPrevious()">Previous</button>
+  <button (click)="getNext()">Next</button>
+  <ol>
+    <li *ngFor="let song of songs | async">
+      {{song.upload_date | date: 'medium'}} {{song.title}} {{song.thumbnail}}
+    </li>
+  </ol>
+</div>

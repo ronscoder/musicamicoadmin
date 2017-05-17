@@ -1,0 +1,15 @@
+<h3>Feedback</h3>
+<table>
+  <thead>
+    <th>Cateogry</th>
+    <th>Text</th>
+    <th>User</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let feed of feeds">
+      <td>{{feed.category}}</td>
+      <td>{{feed.text.feed}}</td>
+      <td>{{feed.uid}}</td>
+    </tr>
+  </tbody>
+</table>
