@@ -33,6 +33,7 @@ export class AddYoutubeResourceComponent implements OnInit {
     return new FormGroup({
       trackid: new FormControl({value:0, disabled: true }),
       source_type: new FormControl({ value: this.sourceType, disabled: true }, Validators.required),
+      source: new FormControl('', Validators.required),
       upload_date: new FormControl(new Date().getTime(), Validators.required),
       title: new FormControl('', Validators.required),
       url: new FormControl('', Validators.required),
@@ -85,7 +86,7 @@ export class AddYoutubeResourceComponent implements OnInit {
     const comments = {
       'comment': songData['auth_comment'],
       'displayName': 'Musiclub',
-      'photo': '/assets/icon/favicon.ico',
+      'photo': 'assets/icon/favicon.ico',
       'userid': '112237211925136350331'
     };
     this.dataService.addResource(songData, 'manipuri', comments).then(res => {

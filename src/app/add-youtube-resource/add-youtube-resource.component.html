@@ -6,7 +6,8 @@
 <h2>Add youtube resource</h2>
 <form [formGroup]='form'>
   <input type="number" formControlName="trackid" placeholder="track id (internal)">
-  <input type="text" formControlName="source_type" placeholder="source_type">
+  <input type="text" formControlName="source_type" placeholder="source_type" [(ngModel)]="sourceType">
+  <input type="text" formControlName="source" placeholder="source">
   <input type="text" formControlName="upload_date" placeholder="upload date"> <small>{{date | date: 'medium' }}</small>
   <br>
   <input type="text" formControlName="title" required placeholder="title">
